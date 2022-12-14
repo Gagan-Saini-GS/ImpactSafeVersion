@@ -4,7 +4,7 @@ import CreatePost from "./CreatePost";
 function Feed(props) {
   useEffect(() => {
     fetch("/getAllPosts")
-      .then((response) => response.json())
+      // .then((response) => response.json())
       .then((data) => {
         // console.log(data);
         props.setPosts(data);
