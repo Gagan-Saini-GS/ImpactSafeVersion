@@ -121,7 +121,8 @@ app.post("/postUpload", function (req, res) {
   res.redirect("/getAllPosts");
 });
 
-app.post("https://impact-test-version.netlify.app/signIn", function (req, res) {
+app.post("/signIn", function (req, res) {
+  console.log(JSON.parse(req.body));
   bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
     if (!err) {
       const newUser = new User({
@@ -150,7 +151,7 @@ app.post("https://impact-test-version.netlify.app/signIn", function (req, res) {
   });
 });
 
-app.post("https://impact-test-version.netlify.app/login", function (req, res) {
+app.post("/login", function (req, res) {
   User.findOne({ userEmail: req.body.userEmail }, function (err, foundUser) {
     if (err) {
       console.log(err);
@@ -656,6 +657,8 @@ app.post("/addSkill", function (req, res) {
   });
 });
 
-app.listen(5000, () => {
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => {
   console.log("Server is running at port 5000");
 });
