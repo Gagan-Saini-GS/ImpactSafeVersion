@@ -29,9 +29,10 @@ function Login(props) {
         response.json();
       })
       .then((data) => {
-        // console.log(data);
-        accessToken = data;
-        setAccessToken(data);
+        console.log(data);
+        console.log(data.accessToken);
+        accessToken = data.accessToken;
+        setAccessToken(data.accessToken);
         // console.log(accessToken);
         if (accessToken !== "") {
           localStorage.setItem("accessToken", JSON.stringify(accessToken));
@@ -60,6 +61,7 @@ function Login(props) {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         accessToken = data;
         setAccessToken(data);
         if (accessToken !== "") {
