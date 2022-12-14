@@ -13,7 +13,7 @@ function Login(props) {
     const password = document.querySelector(".signin-password").value;
 
     // console.log(userName, userEmail, password);
-    fetch("/signIn", {
+    fetch("https://impact-test-version.netlify.app/signIn", {
       method: "POST",
       body: JSON.stringify({
         userName: userName,
@@ -42,7 +42,7 @@ function Login(props) {
     const password = document.querySelector(".login-password").value;
 
     // console.log(userName, userEmail, password);
-    fetch("/login", {
+    fetch("https://impact-test-version.netlify.app/login", {
       method: "POST",
       body: JSON.stringify({
         userEmail: userEmail,

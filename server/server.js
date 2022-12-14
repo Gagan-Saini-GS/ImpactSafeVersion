@@ -121,7 +121,7 @@ app.post("/postUpload", function (req, res) {
   res.redirect("/getAllPosts");
 });
 
-app.post("/signIn", function (req, res) {
+app.post("https://impact-test-version.netlify.app/signIn", function (req, res) {
   bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
     if (!err) {
       const newUser = new User({
@@ -150,7 +150,7 @@ app.post("/signIn", function (req, res) {
   });
 });
 
-app.post("/login", function (req, res) {
+app.post("https://impact-test-version.netlify.app/login", function (req, res) {
   User.findOne({ userEmail: req.body.userEmail }, function (err, foundUser) {
     if (err) {
       console.log(err);
