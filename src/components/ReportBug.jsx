@@ -1,6 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 
 function ReportBug() {
+  useEffect(() => {
+    fetch("/getAccessToken", {
+      method: "POST",
+      body: JSON.stringify({
+        userName: "Gagan",
+        userEmail: "gagansaini@gmail.com",
+        password: "gaganiscoder",
+      }),
+      headers: {
+        "Content-type": "application;json charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        console.log(data.accessToken);
+      });
+  }, []);
+
   return (
     <div className="report-bug-box">
       <h1>

@@ -654,6 +654,21 @@ app.post("/addSkill", function (req, res) {
   });
 });
 
+app.post("/getAccessToken", (req, res) => {
+  console.log(req.body);
+
+  // jwt.sign(process.env.ACCESS_TOKEN,function())
+  const user = {
+    userName: req.body.userName,
+    userEmail: req.body.userEmail,
+    password: req.body.password,
+  };
+
+  const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN);
+  console.log(accessToken);
+  res.json({ accessToken: accessToken });
+});
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
