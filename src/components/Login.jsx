@@ -34,6 +34,9 @@ function Login(props) {
           localStorage.setItem("accessToken", JSON.stringify(accessToken));
           props.passAccessToken(accessToken);
         }
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 
@@ -60,6 +63,9 @@ function Login(props) {
           localStorage.setItem("accessToken", JSON.stringify(accessToken));
           props.passAccessToken(accessToken);
         }
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 
