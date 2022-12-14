@@ -122,14 +122,12 @@ app.post("/postUpload", function (req, res) {
 });
 
 app.post("/signIn", function (req, res) {
-  console.log(JSON.parse(req.body));
   bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
     if (!err) {
       const newUser = new User({
         userName: req.body.userName,
         userEmail: req.body.userEmail,
         password: hash,
-        role: "ADMIN",
         // Add all feilds
       });
 
@@ -139,7 +137,6 @@ app.post("/signIn", function (req, res) {
           userName: req.body.userName,
           userEmail: req.body.userEmail,
           password: hash,
-          role: "ADMIN",
         },
         process.env.ACCESS_TOKEN
       );
@@ -191,7 +188,7 @@ app.post("/currentUser", function (req, res) {
             userIntro: foundUser.userIntro,
             userProfileImage: foundUser.userProfileImage,
           };
-          res.json({ ans });
+          res.json({ ans: ans });
         }
       });
     }

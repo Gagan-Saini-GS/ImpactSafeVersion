@@ -76,7 +76,7 @@ function App() {
         accessToken: localStorage.getItem("accessToken"),
       },
     })
-      .then((response) => response.json())
+      // .then((response) => response.json())
       .then((data) => {
         // console.log(data.ans);
         setUser(data.ans);
