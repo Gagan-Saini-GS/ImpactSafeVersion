@@ -25,16 +25,20 @@ function Login(props) {
       },
     })
       .then((response) => {
-        console.log(response);
         response.json();
       })
       .then((data) => {
-        // console.log(data);
         // console.log(data.accessToken);
+        // response.json();
+        console.log(data);
+        // console.log(data.accessToken);
+        // let data;
         accessToken = data;
         setAccessToken(data);
         // console.log(accessToken);
         if (accessToken !== "") {
+          console.log(accessToken);
+          console.log("HI");
           localStorage.setItem("accessToken", JSON.stringify(accessToken));
           props.passAccessToken(accessToken);
         }

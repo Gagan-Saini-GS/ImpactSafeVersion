@@ -19,6 +19,8 @@ app.use(
   })
 );
 
+app.use(express.static(__dirname + "./build"));
+
 const DB =
   "mongodb+srv://Gagan_Saini:gaganiscoder@cluster0.afqpweg.mongodb.net/Impact?retryWrites=true&w=majority";
 // mongoose.connect("mongodb://localhost:27017/impactDB");
@@ -141,6 +143,7 @@ app.post("/signIn", function (req, res) {
         process.env.ACCESS_TOKEN
       );
 
+      // res.send("JHI");
       res.json({ accessToken: accessToken });
     } else {
       console.log(err);
@@ -669,7 +672,7 @@ app.post("/getAccessToken", (req, res) => {
   res.json({ accessToken: accessToken });
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.prot || 5000;
 
 app.listen(port, () => {
   console.log("Server is running at port 5000");
