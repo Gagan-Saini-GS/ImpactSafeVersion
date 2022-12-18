@@ -672,7 +672,7 @@ app.post("/getAccessToken", (req, res) => {
   res.json({ accessToken: accessToken });
 });
 
-const port = process.env.prot || 5000;
+const port = process.env.port || 5000;
 
 app.listen(port, () => {
   console.log("Server is running at port 5000");
